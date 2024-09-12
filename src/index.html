@@ -1,22 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachinder</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <!-- Заголовок -->
+        <div class="top-row">
+            <!-- Логотип -->
+            <div class="teachinder">
+                <img src="images/teachinder.png" alt="Teachinder Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Name, note or age to search">
+                <button aria-label="Search">Search</button>
+            </div>
+        </div>
+        <!-- Навігація -->
+        <div class="nav-container">
+            <nav>
+                <a href="#">Teachers</a>
+                <a href="#">Statistics</a>
+                <a href="#">Favorites</a>
+                <a href="#">About</a>
+            </nav>
+            <button class="add-teacher" aria-label="Add Teacher">Add Teacher</button>
+        </div>
+    </div>
+</header>
+<!-- Список вчителів -->
+<main class="container">
+    <section class="top-teachers">
+        <h2>Top Teachers</h2>
+        <div class="filters">
+            <label class="fhead" for="age-filter">Age</label>
+            <select id="age-filter">
+                <option>18-31</option>
+                <option>32-45</option>
+            </select>
+            <span class="line">|</span>
+            <label class="fhead" for="region-filter">Region</label>
+            <select id="region-filter">
+                <option>Europe</option>
+                <option>Asia</option>
+            </select>
+            <span class="line">|</span>
+            <label class="fhead" for="sex-filter">Sex</label>
+            <select id="sex-filter">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <span class="line">|</span>
+            <label class="fhead"><input type="checkbox"> Only with photo</label>
+            <span class="line">|</span>
+            <label class="fhead"><input type="checkbox"> Only favorites</label>
+        </div>
+        <div class="teachers-list">
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
+            <div class="teacher-card-container">
+                <div class="teacher-card">
+                    <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                </div>
+                <h3>Ihor<br>Tkachuk</h3>
+                <p>Chemistry<br>Ukraine</p>
+            </div>
 
-   <head itemscope itemtype="http://schema.org/WebSite">
-
-      <meta charset="utf-8">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <meta name="msapplication-tap-highlight" content="no">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <title>Project</title>
-
-      <link rel="stylesheet" href="./css/app.css">
-
-   </head>
-
-   <body itemscope itemtype="http://schema.org/WebPage">
-
-      <script type="text/javascript" src="../build/app.js"></script>
-      
-  </body>
+        </div>
+    </section>
+    <!-- Статистика вчителів -->
+    <section class="statistics">
+        <h2>Statistics</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Speciality</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Nationality</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            <tr>
+                <td>Daisy Alexander</td>
+                <td>Chemistry</td>
+                <td>28</td>
+                <td>Female</td>
+                <td>Vietnam</td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- Преключателі сторінок статичтики -->
+        <div class="pagination">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">...Last</a>
+        </div>
+    </section>
+    <!-- Список favorite вчителів -->
+    <section class="favorites">
+        <h2>Favorites</h2>
+        <div class="favorites-list">
+            <img class="arrow" src="images/rarrow.png" alt="Next">
+            <div class="favorite-teachers">
+                <div class="teacher-card-container">
+                    <div class="teacher-card">
+                        <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                    </div>
+                    <h3>Ihor<br>Tkachuk</h3>
+                    <p>Chemistry<br>Ukraine</p>
+                </div>
+            </div>
+            <div class="favorite-teachers">
+                <div class="teacher-card-container">
+                    <div class="teacher-card">
+                        <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                    </div>
+                    <h3>Ihor<br>Tkachuk</h3>
+                    <p>Chemistry<br>Ukraine</p>
+                </div>
+            </div>
+            <div class="favorite-teachers">
+                <div class="teacher-card-container">
+                    <div class="teacher-card">
+                        <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                    </div>
+                    <h3>Ihor<br>Tkachuk</h3>
+                    <p>Chemistry<br>Ukraine</p>
+                </div>
+            </div>
+            <div class="favorite-teachers">
+                <div class="teacher-card-container">
+                    <div class="teacher-card">
+                        <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                    </div>
+                    <h3>Ihor<br>Tkachuk</h3>
+                    <p>Chemistry<br>Ukraine</p>
+                </div>
+            </div>
+            <div class="favorite-teachers">
+                <div class="teacher-card-container">
+                    <div class="teacher-card">
+                        <img src="images/teacher1.jpg" alt="Ihor Tkachuk">
+                    </div>
+                    <h3>Ihor<br>Tkachuk</h3>
+                    <p>Chemistry<br>Ukraine</p>
+                </div>
+            </div>
+            <img class="arrow" src="images/larrow.png" alt="Previous">
+        </div>
+    </section>
+</main>
+<!-- Кінець сторінки -->
+<footer>
+    <div class="nav-container">
+        <nav>
+            <a href="#">Teachers</a>
+            <a href="#">Statistics</a>
+            <a href="#">Favorites</a>
+            <a href="#">About</a>
+        </nav>
+        <button class="add-teacher" aria-label="Add Teacher">Add Teacher</button>
+    </div>
+</footer>
+</body>
 </html>
+
+
+

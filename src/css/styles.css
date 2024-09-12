@@ -1,0 +1,340 @@
+
+body {
+  max-width: 1000px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fefefe;
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container,
+header,
+.filters,
+.statistics table,
+.favorites-list,
+.teachers-list {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Заголовок */
+header {
+  max-width: 1000px;
+  background-color: #fff;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 40px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Логотип */
+.teachinder img {
+  float: left;
+  width: 145px;
+  padding-left: 46px;
+}
+
+.teachinder img:hover {
+  content: url('../images/teachinter-h.png');
+  width: 145px;
+}
+
+/* Пошукова строка */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 9.1%;
+  padding-bottom: 40px;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 300px;
+}
+
+/* Кнопка пошуку */
+.search-bar button {
+  background: white;
+  padding: 10px 20px;
+  border: 3px solid #fb9387;
+  color: #fb9387;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #f75c48;
+  color: #fff;
+}
+
+/* Навігація */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  max-width: 1000px;
+  padding-left: 5.84%;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fb9387;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #f75c48;
+}
+
+/* Додати викладача */
+.add-teacher {
+  background: #fff;
+  color: #fb9387;
+  border: 3px solid #fb9387;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 78px;
+}
+
+.add-teacher:hover {
+  background-color: #f75c48;
+  color: #fff;
+}
+
+/* Список вчителів */
+.top-teachers {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.top-teachers h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Фільтри */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  color: grey;
+}
+
+.line {
+  font-size: 24px;
+}
+
+.fhead {
+  padding-top: 5px;
+}
+
+.filters select,
+.filters input[type="checkbox"] {
+  padding: 8px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Список */
+.teachers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: left;
+  margin-left: 70px;
+}
+
+.teacher-card {
+  margin-left: 0;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #fb9387;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.teacher-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.teacher-card:hover {
+  transform: scale(1.05);
+  border: 4px solid #f75c48;
+}
+
+/* Статистика */
+.statistics {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.statistics h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.statistics table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.statistics th,
+.statistics td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.statistics th {
+  background-color: #f3f3f3;
+  border-bottom: 2px solid #ddd;
+}
+
+.statistics tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.statistics tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+/* Переключателі сторінок */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 6px 12px;
+  margin: 0 2px;
+  color: #fb9387;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pagination a:hover {
+  background-color: #f75c48;
+  color: #fff;
+}
+
+/* Favorite вчителі */
+.favorites {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.favorites h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.favorites-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.arrow {
+  width: auto;
+  height: 50px;
+  transition: transform 0.3s;
+  padding-top: 50px;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+}
+
+/* Закінчення */
+footer {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* Зміна при ширині 768 */
+@media (max-width: 768px) {
+  .top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .search-bar input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: auto;
+  }
+
+  .search-bar button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .nav-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-left: 0;
+    align-items: start;
+  }
+
+  nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
