@@ -1,22 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachinder</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.7/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <!-- Заголовок -->
+        <div class="top-row">
+            <!-- Логотип -->
+            <div class="teachinder">
+                <img src="images/teachinder.png" alt="Teachinder Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Ім'я, коментар або вік для пошуку">
+                <button aria-label="Search" onclick="searchTeachers()">Пошук</button>
+            </div>
 
-   <head itemscope itemtype="http://schema.org/WebSite">
+        </div>
+        <!-- Навігація -->
+        <div class="nav-container">
+            <nav>
+                <a href="#">Teachers</a>
+                <a href="#">Statistics</a>
+                <a href="#">Favorites</a>
+                <a href="#">About</a>
+            </nav>
+            <button class="add-teacher" aria-label="Add Teacher" data-id="1">Add Teacher</button>
+            <div id="add-teacher-modal" class="modal hidden">
+                <div class=" add-modal-content">
+                    <h2>Add New Teacher</h2>
+                    <h5>
+                        <label for="full_name">Full Name:</label><br>
+                        <input type="text" id="full_name" required><br><br>
 
-      <meta charset="utf-8">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <meta name="msapplication-tap-highlight" content="no">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <label for="course">Course:</label><br>
+                        <input type="text" id="course" required><br><br>
 
-      <title>Project</title>
+                        <label for="country">Country:</label><br>
+                        <input type="text" id="country" required><br><br>
 
-      <link rel="stylesheet" href="./css/app.css">
+                        <label for="city">City:</label><br>
+                        <input type="text" id="city" required><br><br>
 
-   </head>
+                        <label for="gender">Gender:</label><br>
+                        <select id="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select><br><br>
 
-   <body itemscope itemtype="http://schema.org/WebPage">
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" required><br><br>
 
-      <script type="text/javascript" src="../build/app.js"></script>
-      
-  </body>
+                        <label for="phone">Phone:</label><br>
+                        <input type="text" id="phone" required><br><br>
+
+                        <label for="age">Age:</label><br>
+                        <input type="number" id="age" required><br><br>
+
+                        <label for="note">Note:</label><br>
+                        <textarea id="note"></textarea><br><br>
+
+                        <label for="bg_color">Favorite Color:</label><br>
+                        <input type="color" id="bg_color" value="#ffcc00"><br><br>
+                    </h5>
+                    <button id="save-teacher">Save Teacher</button>
+                    <button id="close-modal">Close</button>
+                </div>
+            </div>
+        </div>
+</header>
+<main class="container">
+    <!-- Список вчителів -->
+    <section class="top-teachers">
+        <h2>Top Teachers</h2>
+        <div class="filters">
+            <input type="number" id="agef" placeholder="Вік">
+            <input type="text" id="region" placeholder="Країна">
+            <select id="genderf">
+                <option value="">Стать</option>
+                <option value="male">Чоловік</option>
+                <option value="female">Жінка</option>
+            </select>
+            <label><input type="checkbox" id="photo"> Тільки з фото</label>
+            <label><input type="checkbox" id="favorite"> Тільки улюблені</label>
+            <button id="filter-button">Фільтрувати</button>
+        </div>
+        <div id="teachers-list" class="teachers-list"></div>
+        <button id="more-button">More</button>
+    </section>
+    <div id="teacher-modal" class="modal hidden">
+        <div class="inf-modal-content">
+            <span id="favorite-star" class="star" onclick="toggleFavorite()">★</span>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="teacher-info"></div>
+        </div>
+    </div>
+    <!-- Статистика вчителів -->
+    <section class="statistics">
+        <h2>Statistics</h2>
+        <table id="teachers-statistics">
+            <thead>
+            <tr>
+                <th id="name-header">Name</th>
+                <th id="speciality-header">Speciality</th>
+                <th id="age-header">Age</th>
+                <th id="gender-header">Gender</th>
+                <th id="nationality-header">Nationality</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <!-- Прокладка сторінок статистики -->
+        <div class="pagination">
+            <a href="#" id="prev-page" style="display: none;">&laquo; Previous</a>
+            <a href="#" id="next-page" style="display: none;">Next &raquo;</a>
+        </div>
+
+        <!-- Перемикачі для вибору категорії статистики -->
+        <div id="category-switches">
+            <label>
+                <input type="radio" name="category" value="course" checked> Speciality
+            </label>
+            <label>
+                <input type="radio" name="category" value="age"> Age
+            </label>
+            <label>
+                <input type="radio" name="category" value="gender"> Gender
+            </label>
+            <label>
+                <input type="radio" name="category" value="country"> Nationality
+            </label>
+        </div>
+        <canvas id="statisticsChart" width="400" height="400"></canvas>
+    </section>
+    <section class="favorites">
+        <h2>Favorites</h2>
+        <div id="favorites-list" class="favorites-list"></div>
+    </section>
+
+</main>
+<!-- Кінець сторінки -->
+<footer>
+    <div class="nav-container">
+        <nav>
+            <a href="#">Teachers</a>
+            <a href="#">Statistics</a>
+            <a href="#">Favorites</a>
+            <a href="#">About</a>
+        </nav>
+        <button class="add-teacher" aria-label="Add Teacher">Add Teacher</button>
+    </div>
+</footer>
+<script src="js/script.js"></script>
+<script src="js/filterAndApply.js"></script>
+</body>
 </html>
+
+
